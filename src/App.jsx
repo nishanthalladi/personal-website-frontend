@@ -5,7 +5,7 @@ function App() {
     <div className="container">
       <header>
         <h1>Nishanth Alladi</h1>
-        <p>Welcome to my website.</p>
+        <p>Welcome to my website!</p>
       </header>
 
       <section>
