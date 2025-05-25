@@ -47,3 +47,40 @@ footer {
   color: #888;
   margin-top: 4rem;
 }
+
+.top-left-sidebar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #fff9e6;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #dcd0b0;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  z-index: 100;
+}
+
+.top-left-sidebar select,
+.top-left-sidebar button {
+  margin: 0.25rem 0;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: 1px solid #c0b080;
+  background-color: #fff9e6;
+  color: #1a1a1a;
+  font-family: inherit;
+}
+
+.top-left-sidebar button {
+  cursor: pointer;
+  background-color: #c0b080;
+  color: black;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.top-left-sidebar button:hover {
+  background-color: #333;
+}
