@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import P5Wrapper from './components/P5Wrapper';
 import FractalSketch from './animations/PolyFractalSketch';
 import DragonCurve from './animations/DragonCurve';
@@ -11,6 +11,35 @@ import meImagSwag from './assets/me3swag.jpeg';
 function App() {
   const [page, setPage] = useState('home');
   const [swag, setSwag] = useState(false);
+
+  useEffect(() => {
+    const createParticle = (x, y) => {
+      const particle = document.createElement('div');
+      particle.className = 'gold-dust';
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      document.body.appendChild(particle);
+      setTimeout(() => {
+        particle.remove();
+      }, 500);
+    };
+  
+    const handleMouseMove = (e) => {
+      createParticle(e.clientX, e.clientY);
+    };
+  
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const forceCursorNone = () => {
+      document.body.style.cursor = 'none';
+    };
+  
+    window.addEventListener('movemove', forceCursorNone);
+    return () => window.removeEventListener('movemove', forceCursorNone);
+  }, []);
 
   return (
     <div className="container">

@@ -10,6 +10,10 @@ body {
   justify-content: center;
 }
 
+html, body {
+  cursor: none;
+}
+
 .container {
   max-width: 800px;
   width: 100%;
@@ -83,4 +87,30 @@ footer {
 
 .top-left-sidebar button:hover {
   background-color: #333;
+}
+
+.gold-dust {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff8dc, #ffd700);
+  pointer-events: none;
+  animation: fadeOut 0.8s ease-out forwards;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  filter: blur(2px);
+  box-shadow: 0 0 12px 6px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.9;
+    transform: scale(1) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6) translate(-50%, -50%);
+  }
 }
