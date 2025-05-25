@@ -37,8 +37,8 @@ function App() {
       document.body.style.cursor = 'none';
     };
   
-    window.addEventListener('movemove', forceCursorNone);
-    return () => window.removeEventListener('movemove', forceCursorNone);
+    window.addEventListener('mousemove', forceCursorNone);
+    return () => window.removeEventListener('mousemove', forceCursorNone);
   }, []);
 
   return (
