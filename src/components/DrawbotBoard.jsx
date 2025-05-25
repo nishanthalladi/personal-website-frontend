@@ -21,8 +21,8 @@ function DrawbotBoard() {
 
       // Call backend for black's drawish move
       try {
-        let url = 'http://127.0.0.1:5000'
-        // let url = 'https://personal-website-backend-vdr2.onrender.com'
+        // let url = 'http://127.0.0.1:5000'
+        let url = 'https://personal-website-backend-huty.onrender.com'
         console.log(`Sending request to backend URL: ${url}/drawbot-move`);
         const res = await fetch(url + '/drawbot-move', {
           method: 'POST',
