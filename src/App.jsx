@@ -4,19 +4,21 @@ import P5Wrapper from './components/P5Wrapper';
 import FractalSketch from './animations/PolyFractalSketch';
 import DragonCurve from './animations/DragonCurve';
 import DrawbotBoard from './components/DrawbotBoard';
+import meImage from './assets/me3.jpeg';
+import meImagSwag from './assets/me3swag.jpeg';
 
 
 function App() {
   const [page, setPage] = useState('home');
+  const [swag, setSwag] = useState(false);
 
   return (
     <div className="container">
       <div className="top-left-sidebar">
         <select value={page} onChange={(e) => setPage(e.target.value)}>
           <option value="home">Home</option>
-          <option value="about">About</option>
           <option value="drawbot">Drawbot</option>
-          <option value="contact">Contact</option>
+          <option value="about">About</option>
         </select>
       </div>
 
@@ -35,9 +37,47 @@ function App() {
       )}
 
       {page === 'about' && (
-        <section>
-          <h2>About Me</h2>
-          <div className="card">[About content here]</div>
+        <section className="about-section" onClick={() => setSwag(!swag)}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>About Me</h1>
+            <img 
+              src={swag ? meImagSwag : meImage} 
+              alt="Nishanth Alladi" 
+              style={{ 
+                width: '200px', 
+                objectFit: 'cover', 
+                borderRadius: '12px', 
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.15)', 
+                cursor: 'pointer', 
+                transition: 'transform 0.3s ease',
+                marginBottom: '1rem'
+              }}
+            />
+            <a 
+              href="/resume.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ 
+                fontSize: '1rem',
+                color: '#bfa128',
+                textDecoration: 'none',
+                padding: '0.5rem 1rem',
+                border: '1px solid #bfa128',
+                borderRadius: '6px',
+                transition: 'background 0.3s ease, color 0.3s ease'
+              }}
+              onMouseOver={e => {
+                e.target.style.background = '#bfa128';
+                e.target.style.color = '#fff';
+              }}
+              onMouseOut={e => {
+                e.target.style.background = 'transparent';
+                e.target.style.color = '#bfa128';
+              }}
+            >
+              Resume
+            </a>
+          </div>
         </section>
       )}
 
@@ -49,12 +89,12 @@ function App() {
         </section>
       )}
 
-      {page === 'contact' && (
+      {/* {page === 'contact' && (
         <section>
           <h2>Contact</h2>
-          <div className="card">[Contact content here]</div>
+          <p>nishanthalladi01@gmail.com</p>
         </section>
-      )}
+      )} */}
 
       {/* <div style={{ height: '10rem' }} /> */}
       {/* <P5Wrapper sketch={DragonCurve} /> */}
