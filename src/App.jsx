@@ -6,6 +6,7 @@ import DragonCurve from './animations/DragonCurve';
 import DrawbotBoard from './components/DrawbotBoard';
 import meImage from './assets/me3.jpeg';
 import meImagSwag from './assets/me3swag.jpeg';
+import logo from './assets/logo.png'; // adjust the path if needed
 
 
 function App() {
@@ -112,7 +113,10 @@ function App() {
 
       {page === 'drawbot' && (
         <section>
-          <h1>Drawbot</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <img src={logo} alt="Logo" style={{ width: '75px', height: 'auto' }} />
+            <h1>Drawbot</h1>
+          </div>
           <p>The Chess robot that never loses...but also never wins!</p>
           <DrawbotBoard />
         </section>
