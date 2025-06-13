@@ -4,10 +4,12 @@ import P5Wrapper from './components/P5Wrapper';
 import FractalSketch from './animations/PolyFractalSketch';
 import DragonCurve from './animations/DragonCurve';
 import DrawbotBoard from './components/DrawbotBoard';
+import FaceTracker from './components/FaceTracker';
 import meImage from './assets/me3.jpeg';
 import meImagSwag from './assets/me3swag.jpeg';
 import logo from './assets/logo.png'; // adjust the path if needed
-
+import * as tf from '@tensorflow/tfjs';
+import * as facemesh from '@tensorflow-models/facemesh';
 
 function App() {
   const [page, setPage] = useState('home');
@@ -34,12 +36,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const forceCursorNone = () => {
-      document.body.style.cursor = 'none';
+    document.body.style.cursor = 'none';
+    return () => {
+      document.body.style.cursor = 'default';
     };
-  
-    window.addEventListener('mousemove', forceCursorNone);
-    return () => window.removeEventListener('mousemove', forceCursorNone);
   }, []);
 
   return (
@@ -49,6 +49,7 @@ function App() {
           <option value="home">Home</option>
           <option value="drawbot">Drawbot</option>
           <option value="about">About</option>
+          <option value="facetracker">Face Tracker</option>
         </select>
       </div>
 
@@ -119,6 +120,13 @@ function App() {
           </div>
           <p>The Chess robot that never loses...but also never wins!</p>
           <DrawbotBoard />
+        </section>
+      )}
+
+      {page === 'facetracker' && (
+        <section>
+          {/* <h1>Face Tracker</h1> */}
+          <FaceTracker />
         </section>
       )}
 

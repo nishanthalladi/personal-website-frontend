@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tensorflow-models/facemesh": "^0.0.4",
+    "@tensorflow/tfjs": "^3.21.0",
     "chess.js": "^1.2.0",
     "p5": "^2.0.2",
     "react": "^19.0.0",

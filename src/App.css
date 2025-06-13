@@ -104,6 +104,16 @@ footer {
   box-shadow: 0 0 12px 6px rgba(255, 215, 0, 0.3);
 }
 
+.gaze-cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  pointer-events: none;
+  z-index: 9999;
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 0.9;
